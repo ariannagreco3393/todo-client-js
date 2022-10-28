@@ -30,9 +30,7 @@ function getAllTasks() {
                 img.setAttribute("taskId",elencoTask[i].taskId);        
                 img.addEventListener("click",deleteTask);
                 tDiv.appendChild(img);
-                taskDiv.appendChild(tDiv);   
-                
-                
+                taskDiv.appendChild(tDiv);            
             }      
         })
         .catch((error) => {
@@ -46,7 +44,7 @@ function addTask() {
     if(txtTaskName.value!="") {
    
         const newTask= {
-            name: txtTaskName.value           
+            taskName: txtTaskName.value           
         }
 
         axios.post(Url+"/createtask", newTask)
