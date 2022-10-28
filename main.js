@@ -6,7 +6,7 @@ const divErr=document.getElementById("divErr");
 btnNew.addEventListener("click",addTask);
 
 const Url="http://localhost:8080/api/todo";
-const URLpost = "http://localhost:8080/api/cratetask"
+
 
 getAllTasks();        
 
@@ -27,7 +27,7 @@ function getAllTasks() {
                 img.title="Elimina";
                 img.width=20;
                 img.alt="Elimina";
-                img.setAttribute("taskId",elencoTask[i].id);        
+                img.setAttribute("taskId",elencoTask[i].taskId);        
                 img.addEventListener("click",deleteTask);
                 tDiv.appendChild(img);
                 taskDiv.appendChild(tDiv);   
@@ -49,7 +49,7 @@ function addTask() {
             name: txtTaskName.value           
         }
 
-        axios.post(URLpost, newTask)
+        axios.post(Url+"/createtask", newTask)
             .then((response) => {
                 getAllTasks();        
                 txtTaskName.value="";
